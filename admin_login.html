@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Login</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: url("kloth-high-resolution-logo.png") no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        
+        .form {
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 380px;
+        }
+        
+        .title {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 30px;
+            color: #3366cc;
+        }
+        
+        .label {
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 6px;
+            display: block;
+        }
+        
+        .input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        
+        .input:focus {
+            border-color: #3366cc;
+            box-shadow: 0 0 5px rgba(51, 102, 204, 0.5);
+            outline: none;
+        }
+        
+        .form-submit-btn {
+            background-color: #3366cc;
+            color: white;
+            border: none;
+            padding: 12px;
+            width: 100%;
+            margin-top: 10px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .form-submit-btn:hover {
+            background-color: #254e9b;
+        }
+        
+        .form-submit-btn[type="reset"] {
+            background-color: #888;
+        }
+        
+        .form-submit-btn[type="reset"]:hover {
+            background-color: #666;
+        }
+        
+        .error {
+            color: red;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <form class="form" action="admin_login.php" method="POST">
+        <span class="title">Admin Login</span>
+
+        <?php if (isset($_GET['error']) && $_GET['error'] == 0): ?>
+
+        <?php endif; ?>
+
+        <label class="label">Username</label>
+        <input type="text" name="n1" required class="input" placeholder="Enter username">
+
+        <label class="label">Password</label>
+        <input type="password" name="n2" required class="input" placeholder="Enter password">
+
+        <input type="submit" value="Login" class="form-submit-btn">
+        <input type="reset" value="Reset" class="form-submit-btn">
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+
+<head>
+    <title>update product price</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background: url("kloth-high-resolution-logo.png") no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        
+        .card {
+            background-color: #ffffffee;
+            border: 2px solid #3366cc;
+            border-radius: 10px;
+            padding: 30px;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        
+        .title {
+            font-size: 28px;
+            font-weight: bold;
+            text-align: center;
+            color: #3366cc;
+            margin-bottom: 25px;
+        }
+        
+        .form {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .group {
+            position: relative;
+            margin-bottom: 20px;
+        }
+        
+        .group input {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            outline: none;
+        }
+        
+        .group input:focus {
+            border-color: #3366cc;
+            box-shadow: 0 0 3px #3366cc;
+        }
+        
+        .group label {
+            position: absolute;
+            top: -10px;
+            left: 10px;
+            background-color: #fff;
+            font-size: 14px;
+            padding: 0 5px;
+            color: #3366cc;
+            font-weight: bold;
+        }
+        
+        .form-submit-btn {
+            padding: 12px;
+            font-size: 16px;
+            color: white;
+            background-color: #3366cc;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .form-submit-btn:hover {
+            background-color: #254e9b;
+        }
+        
+        .form-submit-btn[type="reset"] {
+            background-color: #999;
+        }
+        
+        .form-submit-btn[type="reset"]:hover {
+            background-color: #777;
+        }
+    </style>
+</head>
+
+<body bgcolor="cyan">
+    <div class="card">
+        <span class="title">Update Product Price</span><br><br>
+        <form class="form" action="update_product_price.php">
+
+            <div class="group">
+                <input placeholder="‎" type="text" name="product_id" required="">
+                <label>Product Id</label>
+            </div>
+
+            <div class="group">
+                <input placeholder="‎" type="text" name="price" required="">
+                <label>Product Price</label>
+            </div>
+
+            <input type="submit" value="submit" class="form-submit-btn">
+            <input type="reset" class="form-submit-btn">
+        </form>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Expense Tracker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        
+        #expenseForm {
+            max-width: 500px;
+            margin: 20px auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+        
+        input[type="text"],
+        input[type="number"],
+        input[type="date"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        
+        button {
+            width: 48%;
+            padding: 12px;
+            font-size: 16px;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+        }
+        
+        button[type="submit"] {
+            background-color: #3366cc;
+            color: white;
+        }
+        
+        button[type="reset"] {
+            background-color: #ccc;
+        }
+        
+        .form-group {
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Daily Personal Expense Tracker</h1>
+
+    <!-- Form to input expenses -->
+    <form id="expenseForm" action="add_personal_expenses.php" method="POST">
+        <label for="expenseName">Personal Expense</label>
+        <input type="text" name="expenseName" id="expenseName" placeholder="Enter expense description" required>
+
+        <label>Cash Amount</label>
+        <input type="number" name="cash" placeholder="Enter Cash Amount" required>
+
+        <label>Gpay Amount</label>
+        <input type="number" name="gpay" placeholder="Enter Gpay Amount" required>
+
+        <label>Total Amount</label>
+        <input type="number" name="total_amount" placeholder="Enter Total Amount" required>
+
+        <label for="expenseDate">Expense Date</label>
+        <input type="date" name="expenseDate" id="expenseDate" required>
+
+        <div class="form-group">
+            <button type="submit">Submit</button>
+            <button type="reset">Reset</button>
+        </div>
+    </form>
+</body>
+
+</html>

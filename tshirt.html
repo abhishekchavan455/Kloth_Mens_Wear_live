@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Explore T-Shirt</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        
+        .product-img {
+            max-height: 300px;
+            object-fit: cover;
+            height: 300px;
+            cursor: pointer;
+            border-radius: 8px;
+        }
+        
+        .product-title {
+            font-size: 1rem;
+            font-weight: 600;
+        }
+        
+        .product-price {
+            font-weight: bold;
+            color: #444;
+        }
+        
+        .product-card {
+            border: 1px solid #eee;
+            padding: 15px;
+            height: 100%;
+            transition: all 0.3s ease;
+            border-radius: 10px;
+            background-color: #fff;
+        }
+        
+        .product-card:hover {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transform: translateY(-5px);
+        }
+        
+        #modalProductImage {
+            transition: transform 0.3s ease-in-out;
+            cursor: zoom-in;
+            border-radius: 10px;
+        }
+        
+        #modalProductImage:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+
+<body>
+    <section class="container py-5">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold">All New Arrivals</h2>
+            <p class="text-muted">Explore our latest collection now</p>
+        </div>
+
+        <!-- Product Grid -->
+        <div class="row g-4">
+            <script>
+                const products = [{
+                    image: "image/tshirt_1.webp",
+                    title: "Loose-Fit Tee 1",
+                    price: "₹499/-"
+                }, {
+                    image: "image/tshirt_2.webp",
+                    title: "Loose-Fit Tee 2",
+                    price: "₹499/-"
+                }, {
+                    image: "image/tshirt_3.webp",
+                    title: "Loose-Fit Tee 3",
+                    price: "₹499/-"
+                }, {
+                    image: "image/tshirt_4.webp",
+                    title: "Loose-Fit Tee 4",
+                    price: "₹499/-"
+                }, {
+                    image: "image/tshirt_5.webp",
+                    title: "Loose-Fit Tee 5",
+                    price: "₹499/-"
+                }, {
+                    image: "image/tshirt_6.webp",
+                    title: "Loose-Fit Tee 6",
+                    price: "₹499/-"
+                }, {
+                    image: "image/tshirt_7.webp",
+                    title: "Loose-Fit Tee 7",
+                    price: "₹499/-"
+                }, {
+                    image: "image/tshirt_8.webp",
+                    title: "Loose-Fit Tee 8",
+                    price: "₹499/-"
+                }, {
+                    image: "image/tshirt_9.webp",
+                    title: "Loose-Fit Tee 9",
+                    price: "₹499/-"
+                }, {
+                    image: "image/tshirt_10.webp",
+                    title: "Loose-Fit Tee 10",
+                    price: "₹499/-"
+                }, {
+                    image: "image/tshirt_21.jpg",
+                    title: "Loose-Fit Tee 11",
+                    price: "₹499/-"
+                }, {
+                    image: "image/tshirt_22.jpg",
+                    title: "Loose-Fit Tee 12",
+                    price: "₹499/-"
+                }, {
+                    image: "image/tshirt_13.webp",
+                    title: "Loose-Fit Tee 13",
+                    price: "₹499/-"
+                }, {
+                    image: "image/tshirt_14.webp",
+                    title: "Loose-Fit Tee 14",
+                    price: "₹499/-"
+                }, {
+                    image: "image/tshirt_15.webp",
+                    title: "Loose-Fit Tee 15",
+                    price: "₹499/-"
+                }, {
+                    image: "image/tshirt_16.webp",
+                    title: "Loose-Fit Tee 16",
+                    price: "₹499/-"
+                }, ];
+
+                document.write(products.map(product => `
+          <div class="col-lg-3 col-md-4 col-sm-6 text-center">
+            <div class="product-card">
+              <img src="${product.image}" class="img-fluid product-img mb-2"
+                onclick="showProductModal('${product.image}', '${product.title}', '${product.price}', 'High-quality cotton tee with back and front print. Ideal for casual wear.')" />
+              <h3 class="product-title">${product.title}</h3>
+              <p class="product-price">${product.price}</p>
+            </div>
+          </div>
+        `).join(''));
+            </script>
+            <!-- END PRODUCT CARDS -->
+        </div>
+    </section>
+
+    <!-- Modal -->
+    <div class="modal fade" id="productModal" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="productModalLabel">Product Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body d-flex flex-column flex-md-row align-items-center text-center text-md-start">
+                    <img id="modalProductImage" src="" class="img-fluid mb-3 mb-md-0 me-md-4" style="max-width: 300px;" />
+                    <div>
+                        <h4 id="modalProductTitle" class="fw-bold"></h4>
+                        <p id="modalProductPrice" class="text-muted fs-5 mb-2"></p>
+                        <p id="modalProductDescription" class="text-secondary"></p>
+                    </div>
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <button type="button" class="btn btn-secondary px-4" data-bs-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Modal Script -->
+    <script>
+        function showProductModal(imageSrc, title, price, description) {
+            document.getElementById('modalProductImage').src = imageSrc;
+            document.getElementById('modalProductTitle').textContent = title;
+            document.getElementById('modalProductPrice').textContent = price;
+            document.getElementById('modalProductDescription').textContent = description;
+
+            const modal = new bootstrap.Modal(document.getElementById('productModal'));
+            modal.show();
+        }
+    </script>
+</body>
+
+</html>
