@@ -20,6 +20,8 @@ $result = $conn->query($sql);
             background: #f8f9fa;
             font-family: Arial, sans-serif;
             padding: 20px;
+            background: linear-gradient(to right, #ecf0f1, #e0eafc);
+            color: #1f1f1f;
         }
 
         h1 {
@@ -96,8 +98,6 @@ $result = $conn->query($sql);
 <body>
 
     <h1>View All Transactions</h1>
-
-
     <!-- 🔍 Search Box -->
     <input type="text" id="searchInput" onkeyup="searchTable()" placeholder="Search for transactions...">
 
@@ -137,7 +137,7 @@ $result = $conn->query($sql);
     </div>
         
     <div class="back-btn">
-        <a href="admin_panal.html" class="btn btn-primary">
+        <a href="admin_panal.html" class="btn btn-secondary">
             ← Back to Homepage
         </a>
     </div>

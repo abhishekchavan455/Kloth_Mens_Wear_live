@@ -8,15 +8,42 @@ $gpay = $_POST['gpay'];
 $total = $_POST['total_amount'];
 $date = $_POST['expenseDate'];
 
-// Insert into database
-$sql = "INSERT INTO expense (expense_name, cash_amount, gpay_amount, total_amount, expenseDate)
-        VALUES ('$expenseName', '$cash', '$gpay', '$total', '$date')";
+// Use prepared statement
+$stmt = $conn->prepare("INSERT INTO expense (expense_name, cash_amount, gpay_amount, total_amount, expenseDate) VALUES (?, ?, ?, ?, ?)");
+$stmt->bind_param("sddds", $expenseName, $cash, $gpay, $total, $date);
 
-if ($conn->query($sql) === TRUE) {
-    echo "<h2>Expense recorded successfully!</h2><a href='add_shop_expenses.html'>Go Back</a>";
+// Execute and show result
+if ($stmt->execute()) {
+    echo "
+    <script>alert('Expense recorded successfully!');</script>
+    <div style='
+        font-family: Arial, sans-serif;
+        max-width: 90%;
+        width: 400px;
+        margin: 50px auto;
+        text-align: center;
+    '>
+        <h2 style='color: #27ae60;'>Shop Expense Recorded Successfully!</h2>
+        <a href='add_shop_expenses.html' style='
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 24px;
+            background-color: #2c3e50;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 16px;
+        '>Go Back</a>
+    </div>
+    ";
 } else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
+    echo "
+    <script>alert('Error: " . addslashes($stmt->error) . "');</script>
+    <h3 style='text-align:center; color:red;'>Error recording expense: " . htmlspecialchars($stmt->error) . "</h3>
+    ";
 }
 
+$stmt->close();
 $conn->close();
 ?>

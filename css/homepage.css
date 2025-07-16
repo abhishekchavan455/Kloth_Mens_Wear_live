@@ -1,20 +1,47 @@
+/* Updated Color Scheme & Professional Styling with Mobile Optimization */
+
 html {
     scroll-behavior: smooth;
 }
 
 body {
     font-family: 'Segoe UI', sans-serif;
-    background-color: #fafafa;
-    color: #111;
+    background: linear-gradient(to right, #ecf0f1, #e0eafc);
+    color: #1f1f1f;
 }
 
+.navbar {
+    background: linear-gradient(to right, #2c3e50, #34495e);
+}
 
-/* Animated Hero Text */
+.navbar .navbar-brand {
+    color: #fff !important;
+}
+
+.navbar .nav-link {
+    color: #ddd !important;
+}
+
+.navbar .btn {
+    background-color: #e67e22;
+    color: #fff;
+}
+
+.navbar .btn:hover {
+    background-color: #d35400;
+}
 
 .main-title {
-    font-size: 3.5rem;
+    font-size: 2.2rem;
     font-weight: bold;
+    color: #2c3e50;
     animation: fadeInDown 1s ease-out;
+}
+
+@media (min-width: 768px) {
+    .main-title {
+        font-size: 3.5rem;
+    }
 }
 
 .main-description {
@@ -55,8 +82,22 @@ body {
     border-radius: 12px;
 }
 
+@media (max-width: 768px) {
+    .carousel-item img {
+        height: 60vh !important;
+    }
+}
+
 .product-img:hover {
     transform: scale(1.05);
+}
+
+.card {
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    border: none;
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
 }
 
 .card:hover {
@@ -64,15 +105,9 @@ body {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 }
 
-.card {
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-    border: none;
-    background: white;
-    border-radius: 15px;
-}
-
-.btn-shop {
-    background: linear-gradient(to right, #111827, #374151);
+.btn-shop,
+.btn-dark {
+    background: linear-gradient(to right, #16a085, #27ae60);
     color: #fff;
     padding: 0.7rem 1.5rem;
     text-transform: uppercase;
@@ -80,15 +115,38 @@ body {
     border: none;
     border-radius: 30px;
     transition: all 0.3s ease;
+    white-space: normal;
+    word-break: break-word;
+    text-align: center;
 }
 
-.btn-shop:hover {
-    background: #000;
+.btn-shop:hover,
+.btn-dark:hover {
+    background: #145A32;
     letter-spacing: 1px;
 }
 
+.btn-warning {
+    background-color: #f39c12;
+    border: none;
+}
 
-/* Reveal Sections */
+footer {
+    background-color: #2c3e50 !important;
+}
+
+footer .text-dark {
+    color: #ecf0f1 !important;
+}
+
+footer .btn {
+    background-color: #34495e;
+    color: #ecf0f1 !important;
+}
+
+footer .btn:hover {
+    background-color: #1abc9c;
+}
 
 .reveal {
     opacity: 0;
@@ -99,18 +157,4 @@ body {
 .reveal.active {
     opacity: 1;
     transform: translateY(0);
-}
-
-.product-img {
-    transition: transform 0.3s ease;
-    border-radius: 10px;
-}
-
-.product-img:hover {
-    transform: scale(1.05);
-}
-
-.card:hover {
-    transform: scale(1.03);
-    transition: all 0.3s ease-in-out;
 }

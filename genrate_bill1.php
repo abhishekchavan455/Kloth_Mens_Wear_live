@@ -24,6 +24,10 @@ $result = $conn->query($sql);
             height: 200px;
             width: 350px;
         }
+            body {
+            background: linear-gradient(to right, #ecf0f1, #e0eafc);
+            color: #1f1f1f;
+        }
     </style>
     <script>
         function searchProducts() {
@@ -55,7 +59,7 @@ $result = $conn->query($sql);
     <!-- Form to submit selected products -->
     <form action="genrate_bill2.php" method="post">
     <div class="d-flex justify-content-start mt-3">
-        <button type="submit" class="btn btn-success">View Selected Products</button>
+        <button type="submit" class="btn btn-secondary">View Selected Products</button>
     </div>
         <?php
         if ($result->num_rows > 0) {

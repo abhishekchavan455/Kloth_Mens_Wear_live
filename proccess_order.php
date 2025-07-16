@@ -80,6 +80,8 @@ $conn->close();
             background-color: #f4f4f4;
             padding: 20px;
             font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(to right, #ecf0f1, #e0eafc);
+            color: #1f1f1f;
         }
         .invoice-box {
             background: #fff;
@@ -198,7 +200,7 @@ $conn->close();
     </div>
 
     <div class="back-btn">
-        <a href="admin_panal.html" class="btn btn-primary">
+        <a href="admin_panal.html" class="btn btn-secondary">
             ← Back to Homepage
         </a>
     </div>

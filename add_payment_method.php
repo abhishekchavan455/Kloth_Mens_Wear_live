@@ -10,38 +10,58 @@ $totalAmount = $_POST['totalAmount'] ?? 0;
     <title>Payment Method</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- ✅ Bootstrap 5 CSS -->
+    <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
         body {
             background-color: #f8f9fa;
-            padding-top: 40px;
             font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        .card {
+            max-width: 900px;
+            margin: auto;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
         }
 
         h3, h4 {
             text-align: center;
+            color: #333;
+            margin-bottom: 20px;
         }
 
-        table {
-            background-color: #fff;
+        .table th, .table td {
+            vertical-align: middle;
+            text-align: center;
         }
 
-        .form-section {
-            background-color: #fff;
-            padding: 25px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.05);
+        .btn-success {
+            padding: 10px 30px;
+            font-size: 16px;
+            border-radius: 30px;
+        }
+
+        @media (max-width: 576px) {
+            .btn-success {
+                width: 100%;
+            }
+
+            .table th, .table td {
+                font-size: 14px;
+            }
         }
     </style>
 </head>
 <body>
 
-<div class="container">
+<div class="card bg-white">
     <h3>Review Your Order</h3>
-    
-    <div class="table-responsive mt-4">
+
+    <div class="table-responsive mt-3">
         <table class="table table-bordered table-striped">
             <thead class="table-light">
                 <tr>
@@ -77,8 +97,7 @@ $totalAmount = $_POST['totalAmount'] ?? 0;
 
     <h4 class="mt-3">Total Amount: ₹<?= $totalAmount ?></h4>
 
-    <form action="proccess_order.php" method="post" class="form-section mt-4">
-        <!-- Forward data as hidden inputs -->
+    <form action="proccess_order.php" method="post" class="mt-4">
         <?php
         foreach ($productIds as $productId) {
             $price = $_POST["price_$productId"] ?? 0;
@@ -103,13 +122,14 @@ $totalAmount = $_POST['totalAmount'] ?? 0;
         <div class="mb-3">
             <label for="paymentMethod" class="form-label">Payment Method:</label>
             <select class="form-select" id="paymentMethod" name="paymentMethod" required>
-                <option value="UPI">GPay</option>
+                <option value="" disabled selected>Select Payment Method</option>
+                <option value="UPI">GPay / UPI</option>
                 <option value="Cash">Cash</option>
             </select>
         </div>
 
-        <div class="text-center">
-            <button type="submit" class="btn btn-success px-4">Confirm and Pay</button>
+        <div class="text-center mt-4">
+            <button type="submit" class="btn btn-secondary">Confirm and Pay</button>
         </div>
     </form>
 </div>

@@ -20,6 +20,10 @@ $selected = $_POST['selectedProducts'] ?? [];
         .quantity-controls { display: flex; align-items: center; margin-top: 10px; }
         .quantity-controls input { width: 50px; text-align: center; margin: 0 5px; }
         .cart-icon { position: fixed; top: 10px; right: 10px; font-size: 18px; background: #fff; padding: 6px 12px; border-radius: 4px; box-shadow: 0 0 5px rgba(0,0,0,0.1); }
+        body {
+            background: linear-gradient(to right, #ecf0f1, #e0eafc);
+            color: #1f1f1f;
+        }
     </style>
 
     <script>
@@ -105,7 +109,7 @@ $selected = $_POST['selectedProducts'] ?? [];
 
         <!-- Submit Button -->
         <div class="form-group mt-4 text-end">
-            <button type="submit" class="btn btn-success">Add to Cart</button>
+            <button type="submit" class="btn btn-secondary">Add to Cart</button>
         </div>
     </form>
 </div>

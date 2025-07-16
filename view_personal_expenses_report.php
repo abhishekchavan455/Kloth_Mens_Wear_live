@@ -128,8 +128,9 @@ $result = $conn->query($sql);
             </tbody>
         </table>
     </div>
+
     <div class="back-btn">
-        <a href="admin_panal.html" class="btn btn-primary">
+        <a href="admin_panal.html" class="btn btn-secondary ">
             ← Back to Homepage
         </a>
     </div>
